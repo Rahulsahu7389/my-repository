@@ -1,0 +1,97 @@
+#in this project gui based calculator is made
+from tkinter import *
+root = Tk()
+root.title("CALCULATOR")
+root.geometry("1000x1700")
+def ans(event):
+	global var
+	text = event.widget.cget("text")
+	if text == "C":
+		var.set(" ")
+	elif text == "=":
+		try:
+			value = eval(var.get())
+			var.set(value)
+		except:
+			var.set("Error")
+	else:
+		var.set(var.get ()+ str(text))
+		
+var = StringVar()
+e = Entry(root,width = 15,textvariable = var,font = "lucida 20 bold")
+e.pack(anchor = NW,pady = 10,padx = 20)
+
+f = Frame(root,bg ="black")
+f.pack(expand = True,fill= "both")
+
+f2= Frame(root,bg ="green")
+f2.pack(expand = True,fill= "both")
+
+f3= Frame(root,bg ="red")
+f3.pack(expand = True,fill= "both")
+
+f4 = Frame(root,bg ="blue")
+f4.pack(expand = True,fill= "both")
+
+f5 = Frame(root,bg = "orange")
+f5.pack(expand = True,fill = "both")
+
+b = Button(f,text = 1,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill = "both")
+b.bind("<Button-1>",ans)
+b= Button(f,text = 2,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f,text = 3,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+
+b = Button(f2,text = 4,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill = "both")
+b.bind("<Button-1>",ans)
+b= Button(f2,text = 5,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f2,text = 6,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+
+b= Button(f3,text = 7,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill = "both")
+b.bind("<Button-1>",ans)
+b= Button(f3,text = 8,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f3,text = 9,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+
+b= Button(f4,text = 0,font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill = "both")
+b.bind("<Button-1>",ans)
+b= Button(f4,text = "C",font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f4,text ="+",font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f4,text =".",font = "time 20 bold",width = 2)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+
+
+b = Button(f5,text = "-",font = "time 20 bold",width = 1)
+b.pack(side = "left",expand = True,fill = "both")
+b.bind("<Button-1>",ans)
+b= Button(f5,text = "/",font = "time 20 bold",width = 1)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f5,text = "*",font = "time 20 bold",width = 1)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+b= Button(f5,text = "=",font = "time 20 bold",width = 1)
+b.pack(side = "left",expand = True,fill ="both")
+b.bind("<Button-1>",ans)
+
+
+root.mainloop()
